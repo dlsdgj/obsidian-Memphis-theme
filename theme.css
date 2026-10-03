@@ -91,7 +91,7 @@ body{
 /* 高亮 / 行内代码 / 标签 */
 .markdown-rendered mark,.cm-highlight{background:var(--m-hl);color:inherit;padding:0 4px;box-shadow:inset 0 -3px 0 var(--m-a1)}
 .markdown-rendered code,.cm-inline-code{border:1.5px solid var(--m-line);padding:1px 6px;border-radius:0;color:var(--m-on-accent)}
-a.tag,.cm-hashtag{font-weight:700;border-radius:99px;padding:1px 10px;color:var(--m-on-accent)!important}
+a.tag,.cm-hashtag{font-weight:700;border-radius:99px;padding:1px 10px;color:var(--m-on-accent)}
 .cm-hashtag-begin{border-radius:99px 0 0 99px;border-width:var(--m-w)}
 .cm-hashtag-end{border-radius:0 99px 99px 0;border-width:var(--m-w)}
 
@@ -132,7 +132,7 @@ input[type=text]:focus,input[type=search]:focus{box-shadow:3px 3px 0 var(--m-a2)
 
 /* 空白标签页链接 */
 .empty-state-action{color:var(--m-a4);font-weight:700}
-.empty-state-action:hover{color:var(--m-a1);text-decoration:underline wavy}
+.empty-state-action:hover{color:var(--m-a1);text-decoration:underline}
 
 /* 滑块 / 开关 */
 .checkbox-container{border:var(--m-w) solid var(--m-line);border-radius:0;background:var(--m-card)}
@@ -433,7 +433,7 @@ body{--tab-radius:0;--tab-radius-active:0;--tab-curve:0;--tab-outline-width:0}
   background:conic-gradient(from -45deg at bottom,transparent,var(--m-a1) 1deg 90deg,transparent 91deg) bottom left/16px 8px repeat-x}
 .markdown-rendered h2::before{content:"";flex:none;width:.7em;height:.7em;background:var(--m-a1);border:var(--m-w) solid var(--m-line);border-radius:50%}
 .markdown-rendered h3{display:flex;align-items:center;gap:9px;padding-bottom:4px;border-bottom:var(--m-w) dashed var(--m-a2)}
-.markdown-rendered h3::before{content:"";flex:none;width:.65em;height:.65em;background:var(--m-a2);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.markdown-rendered h3::before{content:"";flex:none;width:0;height:0;border-left:.325em solid transparent;border-right:.325em solid transparent;border-bottom:.65em solid var(--m-a2)}
 .markdown-rendered h4{display:flex;align-items:center;gap:9px;color:var(--m-a4)}
 .markdown-rendered h4::before{content:"";flex:none;width:.55em;height:.55em;background:var(--m-a4);transform:rotate(45deg)}
 .markdown-rendered h5{display:flex;align-items:center;gap:8px}
