@@ -503,3 +503,225 @@ body .workspace-tabs .workspace-tab-header.is-active{
 body .workspace-tabs .workspace-tab-header:not(.is-active){border:var(--m-w) solid var(--m-line)!important;border-bottom:0!important}
 /* 标签栏底部线 */
 body .workspace-tab-header-container{background:var(--m-bg)!important;border-bottom:var(--m-w) solid var(--m-line)!important}
+
+
+/* ===== 补充图标:折叠/展开侧栏、阅读模式、链接 ===== */
+.theme-light svg.sidebar,
+.theme-light svg.lucide-sidebar,
+.theme-light svg.sidebar-left,
+.theme-light svg.lucide-sidebar-left,
+.theme-light svg.sidebar-open,
+.theme-light svg.lucide-sidebar-open,
+.theme-light svg.sidebar-close,
+.theme-light svg.lucide-sidebar-close{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2218%22%20height%3D%2218%22%20fill%3D%22%23FFF8E7%22/%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%227%22%20height%3D%2218%22%20fill%3D%22%2319C3B5%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.sidebar-right,
+.theme-light svg.lucide-sidebar-right{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2218%22%20height%3D%2218%22%20fill%3D%22%23FFF8E7%22/%3E%3Crect%20x%3D%2214%22%20y%3D%223%22%20width%3D%227%22%20height%3D%2218%22%20fill%3D%22%23FF5C93%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.book-open,
+.theme-light svg.lucide-book-open,
+.theme-light svg.book-open-text,
+.theme-light svg.lucide-book-open-text,
+.theme-light svg.book-open-check,
+.theme-light svg.lucide-book-open-check,
+.theme-light svg.book,
+.theme-light svg.lucide-book,
+.theme-light svg.book-marked,
+.theme-light svg.lucide-book-marked,
+.theme-light svg.book-text,
+.theme-light svg.lucide-book-text{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M12%206C10%204%206%204%202.5%205v14c3.5-1%207.5-1%209.5%201z%22%20fill%3D%22%2319C3B5%22/%3E%3Cpath%20d%3D%22M12%206c2-2%206-2%209.5-1v14c-3.5-1-7.5-1-9.5%201z%22%20fill%3D%22%23FF5C93%22/%3E%3Cpath%20d%3D%22M12%206v14%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.link,
+.theme-light svg.lucide-link,
+.theme-light svg.link-2,
+.theme-light svg.lucide-link-2,
+.theme-light svg.links-coming-in,
+.theme-light svg.lucide-links-coming-in,
+.theme-light svg.links-going-out,
+.theme-light svg.lucide-links-going-out,
+.theme-light svg.unlink,
+.theme-light svg.lucide-unlink{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%222.5%22%20y%3D%228%22%20width%3D%2211%22%20height%3D%228%22%20fill%3D%22%23FFD23F%22/%3E%3Crect%20x%3D%2210.5%22%20y%3D%228%22%20width%3D%2211%22%20height%3D%228%22%20fill%3D%22%23FF5C93%22%20fill-opacity%3D%221%22/%3E%3Crect%20x%3D%228%22%20y%3D%2210.5%22%20width%3D%228%22%20height%3D%223%22%20fill%3D%22%23FFF8E7%22%20stroke%3D%22none%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.pencil-line,
+.theme-light svg.lucide-pencil-line,
+.theme-light svg.file-pen,
+.theme-light svg.lucide-file-pen,
+.theme-light svg.file-pen-line,
+.theme-light svg.lucide-file-pen-line{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M3%2021l1-5L16%204l4%204L8%2020z%22%20fill%3D%22%23FFD23F%22/%3E%3Cpath%20d%3D%22M16%204l4%204%22%20/%3E%3Cpath%20d%3D%22M13.5%206.5l4%204%22%20stroke%3D%22%23FF5C93%22%20stroke-width%3D%223%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.sidebar,
+.theme-dark svg.lucide-sidebar,
+.theme-dark svg.sidebar-left,
+.theme-dark svg.lucide-sidebar-left,
+.theme-dark svg.sidebar-open,
+.theme-dark svg.lucide-sidebar-open,
+.theme-dark svg.sidebar-close,
+.theme-dark svg.lucide-sidebar-close{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2218%22%20height%3D%2218%22%20fill%3D%22%231B1530%22/%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%227%22%20height%3D%2218%22%20fill%3D%22%233DF2E0%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.sidebar-right,
+.theme-dark svg.lucide-sidebar-right{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2218%22%20height%3D%2218%22%20fill%3D%22%231B1530%22/%3E%3Crect%20x%3D%2214%22%20y%3D%223%22%20width%3D%227%22%20height%3D%2218%22%20fill%3D%22%23FF4F9A%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.book-open,
+.theme-dark svg.lucide-book-open,
+.theme-dark svg.book-open-text,
+.theme-dark svg.lucide-book-open-text,
+.theme-dark svg.book-open-check,
+.theme-dark svg.lucide-book-open-check,
+.theme-dark svg.book,
+.theme-dark svg.lucide-book,
+.theme-dark svg.book-marked,
+.theme-dark svg.lucide-book-marked,
+.theme-dark svg.book-text,
+.theme-dark svg.lucide-book-text{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M12%206C10%204%206%204%202.5%205v14c3.5-1%207.5-1%209.5%201z%22%20fill%3D%22%233DF2E0%22/%3E%3Cpath%20d%3D%22M12%206c2-2%206-2%209.5-1v14c-3.5-1-7.5-1-9.5%201z%22%20fill%3D%22%23FF4F9A%22/%3E%3Cpath%20d%3D%22M12%206v14%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.link,
+.theme-dark svg.lucide-link,
+.theme-dark svg.link-2,
+.theme-dark svg.lucide-link-2,
+.theme-dark svg.links-coming-in,
+.theme-dark svg.lucide-links-coming-in,
+.theme-dark svg.links-going-out,
+.theme-dark svg.lucide-links-going-out,
+.theme-dark svg.unlink,
+.theme-dark svg.lucide-unlink{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%222.5%22%20y%3D%228%22%20width%3D%2211%22%20height%3D%228%22%20fill%3D%22%23FFD93D%22/%3E%3Crect%20x%3D%2210.5%22%20y%3D%228%22%20width%3D%2211%22%20height%3D%228%22%20fill%3D%22%23FF4F9A%22%20fill-opacity%3D%221%22/%3E%3Crect%20x%3D%228%22%20y%3D%2210.5%22%20width%3D%228%22%20height%3D%223%22%20fill%3D%22%231B1530%22%20stroke%3D%22none%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.pencil-line,
+.theme-dark svg.lucide-pencil-line,
+.theme-dark svg.file-pen,
+.theme-dark svg.lucide-file-pen,
+.theme-dark svg.file-pen-line,
+.theme-dark svg.lucide-file-pen-line{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M3%2021l1-5L16%204l4%204L8%2020z%22%20fill%3D%22%23FFD93D%22/%3E%3Cpath%20d%3D%22M16%204l4%204%22%20/%3E%3Cpath%20d%3D%22M13.5%206.5l4%204%22%20stroke%3D%22%23FF4F9A%22%20stroke-width%3D%223%22/%3E%3C/svg%3E") center/contain no-repeat}
+svg.book,
+svg.book-marked,
+svg.book-open,
+svg.book-open-check,
+svg.book-open-text,
+svg.book-text,
+svg.file-pen,
+svg.file-pen-line,
+svg.link,
+svg.link-2,
+svg.links-coming-in,
+svg.links-going-out,
+svg.lucide-book,
+svg.lucide-book-marked,
+svg.lucide-book-open,
+svg.lucide-book-open-check,
+svg.lucide-book-open-text,
+svg.lucide-book-text,
+svg.lucide-file-pen,
+svg.lucide-file-pen-line,
+svg.lucide-link,
+svg.lucide-link-2,
+svg.lucide-links-coming-in,
+svg.lucide-links-going-out,
+svg.lucide-pencil-line,
+svg.lucide-sidebar,
+svg.lucide-sidebar-close,
+svg.lucide-sidebar-left,
+svg.lucide-sidebar-open,
+svg.lucide-sidebar-right,
+svg.lucide-unlink,
+svg.pencil-line,
+svg.sidebar,
+svg.sidebar-close,
+svg.sidebar-left,
+svg.sidebar-open,
+svg.sidebar-right,
+svg.unlink{stroke:none!important;fill:none!important}
+svg.book > *,
+svg.book-marked > *,
+svg.book-open > *,
+svg.book-open-check > *,
+svg.book-open-text > *,
+svg.book-text > *,
+svg.file-pen > *,
+svg.file-pen-line > *,
+svg.link > *,
+svg.link-2 > *,
+svg.links-coming-in > *,
+svg.links-going-out > *,
+svg.lucide-book > *,
+svg.lucide-book-marked > *,
+svg.lucide-book-open > *,
+svg.lucide-book-open-check > *,
+svg.lucide-book-open-text > *,
+svg.lucide-book-text > *,
+svg.lucide-file-pen > *,
+svg.lucide-file-pen-line > *,
+svg.lucide-link > *,
+svg.lucide-link-2 > *,
+svg.lucide-links-coming-in > *,
+svg.lucide-links-going-out > *,
+svg.lucide-pencil-line > *,
+svg.lucide-sidebar > *,
+svg.lucide-sidebar-close > *,
+svg.lucide-sidebar-left > *,
+svg.lucide-sidebar-open > *,
+svg.lucide-sidebar-right > *,
+svg.lucide-unlink > *,
+svg.pencil-line > *,
+svg.sidebar > *,
+svg.sidebar-close > *,
+svg.sidebar-left > *,
+svg.sidebar-open > *,
+svg.sidebar-right > *,
+svg.unlink > *{display:none!important}
+/* 顶部按钮悬停:黄底硬边 */
+.sidebar-toggle-button .clickable-icon:hover,.view-action:hover,.view-header .clickable-icon:hover{background:var(--m-a3);outline:2px solid var(--m-line)}
+
+/* ===== 代码块:浅色=黑底红阴影,深色=奶油底粉阴影 ===== */
+.theme-light{--m-code-bg:#1a1a1a;--m-code-fg:#FFF8E7;--m-code-sh:#FF3B3B;
+  --code-comment:#9a9a9a;--code-function:#FFD23F;--code-keyword:#FF7BA9;--code-string:#3DF2E0;--code-value:#B9A6FF;
+  --code-tag:#FF7BA9;--code-property:#3DF2E0;--code-punctuation:#d8d0bc;--code-important:#FFD23F}
+.theme-dark{--m-code-bg:#F6EEDD;--m-code-fg:#1B1530;--m-code-sh:#FF4F9A;
+  --code-comment:#7a7a7a;--code-function:#9a6b00;--code-keyword:#D6246E;--code-string:#0E8C82;--code-value:#5A3FE0;
+  --code-tag:#D6246E;--code-property:#0E8C82;--code-punctuation:#4a4260;--code-important:#9a6b00}
+.markdown-rendered pre{background:var(--m-code-bg)!important;color:var(--m-code-fg);border:var(--m-w) solid var(--m-line);box-shadow:5px 5px 0 var(--m-code-sh)}
+.markdown-rendered pre code{background:none!important;border:0;color:var(--m-code-fg)}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock,.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-bg{
+  background:var(--m-code-bg)!important;color:var(--m-code-fg);
+  border-left:var(--m-w) solid var(--m-line);border-right:var(--m-w) solid var(--m-line);box-shadow:5px 0 0 var(--m-code-sh)}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin{border-top:var(--m-w) solid var(--m-line)}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end{border-bottom:var(--m-w) solid var(--m-line);box-shadow:5px 5px 0 var(--m-code-sh)}
+.markdown-rendered .code-block-flair{background:var(--m-a3);color:#1a1a1a;border:2px solid var(--m-line);padding:0 8px;font-weight:800;opacity:1}
+.markdown-rendered .copy-code-button{background:var(--m-a2);color:#1a1a1a;border:2px solid var(--m-line);border-radius:0;box-shadow:none;font-weight:700}
+
+
+/* ===== 左右上角折叠/展开按钮(按容器匹配,不依赖图标类名)===== */
+.theme-light .sidebar-toggle-button.mod-left svg,.theme-light .sidebar-toggle-button.mod-left .clickable-icon svg{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2218%22%20height%3D%2218%22%20fill%3D%22%23FFF8E7%22/%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%227%22%20height%3D%2218%22%20fill%3D%22%2319C3B5%22/%3E%3C/svg%3E") center/contain no-repeat!important}
+.theme-light .sidebar-toggle-button.mod-right svg,.theme-light .sidebar-toggle-button.mod-right .clickable-icon svg{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2218%22%20height%3D%2218%22%20fill%3D%22%23FFF8E7%22/%3E%3Crect%20x%3D%2214%22%20y%3D%223%22%20width%3D%227%22%20height%3D%2218%22%20fill%3D%22%23FF5C93%22/%3E%3C/svg%3E") center/contain no-repeat!important}
+.theme-dark .sidebar-toggle-button.mod-left svg,.theme-dark .sidebar-toggle-button.mod-left .clickable-icon svg{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2218%22%20height%3D%2218%22%20fill%3D%22%231B1530%22/%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%227%22%20height%3D%2218%22%20fill%3D%22%233DF2E0%22/%3E%3C/svg%3E") center/contain no-repeat!important}
+.theme-dark .sidebar-toggle-button.mod-right svg,.theme-dark .sidebar-toggle-button.mod-right .clickable-icon svg{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2218%22%20height%3D%2218%22%20fill%3D%22%231B1530%22/%3E%3Crect%20x%3D%2214%22%20y%3D%223%22%20width%3D%227%22%20height%3D%2218%22%20fill%3D%22%23FF4F9A%22/%3E%3C/svg%3E") center/contain no-repeat!important}
+.sidebar-toggle-button svg{width:20px!important;height:20px!important;stroke:none!important;fill:none!important}
+.sidebar-toggle-button svg>*{display:none!important}
+.sidebar-toggle-button .clickable-icon{width:30px;height:30px;display:grid;place-items:center;border:var(--m-w) solid var(--m-line)!important;background:var(--m-card);border-radius:0!important;box-shadow:2px 2px 0 var(--m-sh)}
+.sidebar-toggle-button .clickable-icon:hover{background:var(--m-a3)!important}
+.sidebar-toggle-button .clickable-icon:active{transform:translate(2px,2px);box-shadow:none}
+
+/* ===== 移动端:浮动按钮、底部导航、底部菜单(深浅色都跟随主题底色)===== */
+body.is-mobile{
+  --navbar-background:var(--m-side);--navbar-background-pinned:var(--m-side);
+  --toolbar-background:var(--m-side);--toolbar-background-pinned:var(--m-side);
+  --background-modifier-cover:rgba(0,0,0,.45);
+}
+/* 顶部左右浮动按钮(折叠/展开、阅读模式+更多) */
+body.is-mobile .sidebar-toggle-button,
+body.is-mobile .view-actions,
+body.is-mobile .view-header-nav-buttons,
+body.is-mobile .view-header .view-actions{
+  background:var(--m-card)!important;border:var(--m-w) solid var(--m-line);border-radius:0!important;
+  box-shadow:3px 3px 0 var(--m-sh);backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+body.is-mobile .sidebar-toggle-button .clickable-icon,
+body.is-mobile .view-actions .clickable-icon{background:transparent!important;border:0!important;box-shadow:none!important}
+/* 底部导航条 */
+body.is-mobile .mobile-navbar,
+body.is-mobile .mobile-navbar-actions{
+  background:var(--m-side)!important;border:var(--m-w) solid var(--m-line);border-radius:0!important;
+  box-shadow:4px 4px 0 var(--m-sh);backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+body.is-mobile .mobile-navbar-action{color:var(--m-ink)!important;border-radius:0}
+body.is-mobile .mobile-navbar-action:active{background:var(--m-a3)!important}
+/* 底部弹出菜单/功能区面板 */
+body.is-mobile .menu.mod-mobile,body.is-mobile .menu,
+body.is-mobile .menu .menu-scroll,body.is-mobile .menu .menu-group{
+  background:var(--m-side)!important;color:var(--m-ink)!important;border-radius:0!important}
+body.is-mobile .menu{border-top:var(--m-w) solid var(--m-line);box-shadow:0 -6px 0 var(--m-sh)}
+body.is-mobile .menu .menu-item{background:transparent!important;color:var(--m-ink)!important;border-radius:0}
+body.is-mobile .menu .menu-item-title,body.is-mobile .menu .menu-item .menu-item-icon{color:var(--m-ink)!important}
+body.is-mobile .menu .menu-item:active,body.is-mobile .menu .menu-item.selected{background:var(--m-a3)!important;color:#1a1a1a!important}
+body.is-mobile .menu .menu-item:active .menu-item-title{color:#1a1a1a!important}
+body.is-mobile .menu-grabber,body.is-mobile .modal-grabber{background:var(--m-ink)!important;opacity:.6}
+/* 其他移动端弹窗/抽屉 */
+body.is-mobile .modal,body.is-mobile .modal-container .modal{background:var(--m-bg)!important;color:var(--m-ink)}
+body.is-mobile .workspace-drawer{background:var(--m-side)!important}
