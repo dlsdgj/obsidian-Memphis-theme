@@ -1,0 +1,505 @@
+/* Memphis v0.1 — 亮色=糖果 / 暗色=夜场 */
+
+.theme-light{
+  --m-bg:#FFF8E7; --m-side:#FFE9A8; --m-card:#FFFFFF; --m-ink:#1a1a1a; --m-line:#1a1a1a;
+  --m-a1:#FF5C93; --m-a2:#19C3B5; --m-a3:#FFD23F; --m-a4:#6A4CFF;
+  --m-sh:#1a1a1a; --m-on-accent:#1a1a1a; --m-hl:#FFD23F; --m-mute:#6b5f45;
+}
+.theme-dark{
+  --m-bg:#1B1530; --m-side:#251C45; --m-card:#2E2357; --m-ink:#F6EEDD; --m-line:#F6EEDD;
+  --m-a1:#FF4F9A; --m-a2:#3DF2E0; --m-a3:#FFD93D; --m-a4:#9B7BFF;
+  --m-sh:#FF4F9A; --m-on-accent:#1B1530; --m-hl:#6a3df0; --m-mute:#a99ccf;
+}
+body{
+  --m-w:2.5px;
+  --background-primary:var(--m-bg);
+  --background-primary-alt:var(--m-card);
+  --background-secondary:var(--m-side);
+  --background-secondary-alt:var(--m-side);
+  --background-modifier-border:var(--m-line);
+  --background-modifier-border-hover:var(--m-line);
+  --background-modifier-hover:var(--m-card);
+  --background-modifier-active-hover:var(--m-a3);
+  --background-modifier-form-field:var(--m-card);
+  --text-normal:var(--m-ink);
+  --text-muted:var(--m-mute);
+  --text-faint:var(--m-mute);
+  --text-accent:var(--m-a1);
+  --text-accent-hover:var(--m-a4);
+  --text-on-accent:var(--m-on-accent);
+  --text-highlight-bg:var(--m-hl);
+  --interactive-accent:var(--m-a1);
+  --interactive-accent-hover:var(--m-a2);
+  --interactive-normal:var(--m-card);
+  --interactive-hover:var(--m-a3);
+  --link-color:var(--m-a4);
+  --link-color-hover:var(--m-a1);
+  --link-external-color:var(--m-a4);
+  --tag-color:var(--m-on-accent);
+  --tag-background:var(--m-a2);
+  --tag-background-hover:var(--m-a3);
+  --tag-border-width:var(--m-w);
+  --tag-border-color:var(--m-line);
+  --code-background:var(--m-a3);
+  --code-normal:var(--m-on-accent);
+  --blockquote-border-color:var(--m-a4);
+  --blockquote-border-thickness:12px;
+  --blockquote-background-color:var(--m-card);
+  --hr-color:var(--m-line);
+  --hr-thickness:var(--m-w);
+  --radius-s:0; --radius-m:0; --radius-l:0; --clickable-icon-radius:0;
+  --checkbox-radius:0; --checkbox-color:var(--m-a2); --checkbox-color-hover:var(--m-a2);
+  --checkbox-border-color:var(--m-line);
+  --list-marker-color:var(--m-a1);
+  --h1-color:var(--m-on-accent); --h2-color:var(--m-ink); --h3-color:var(--m-ink);
+  --h4-color:var(--m-ink); --h5-color:var(--m-ink); --h6-color:var(--m-ink);
+  --h1-weight:800; --h2-weight:800; --h3-weight:700;
+  --scrollbar-thumb-bg:var(--m-a1); --scrollbar-active-thumb-bg:var(--m-a2);
+}
+
+/* 全局硬边 */
+.workspace-split.mod-vertical>*>.workspace-leaf-resize-handle{background:var(--m-line)}
+.workspace-ribbon,.workspace-ribbon.mod-left:before{background:var(--m-bg);border-right:var(--m-w) solid var(--m-line)}
+.sidebar-toggle-button,.workspace-tab-header-container{background:var(--m-bg)}
+.workspace-tab-header-container{border-bottom:var(--m-w) solid var(--m-line)}
+.mod-vertical .workspace-tab-header-container{padding-top:4px}
+
+/* 标签页 */
+.workspace-tab-header{border:var(--m-w) solid var(--m-line);border-bottom:0;background:var(--m-side);margin-right:6px;border-radius:0}
+.workspace-tab-header.is-active{background:var(--m-a3);color:var(--m-on-accent);font-weight:700}
+.workspace-tab-header.is-active .workspace-tab-header-inner-title{color:var(--m-on-accent)}
+.workspace-tab-header-inner::after,.workspace-tab-header::before,.workspace-tab-header::after{display:none}
+
+/* 侧边栏 + 圆点底纹 */
+.workspace-split.mod-left-split .workspace-tabs,
+.workspace-split.mod-right-split .workspace-tabs{border-right:var(--m-w) solid var(--m-line);
+  background-image:radial-gradient(var(--m-line) 1.2px,transparent 1.4px);background-size:14px 14px;background-position:0 0;
+  background-color:var(--m-side)}
+.theme-light .workspace-split.mod-left-split .workspace-tabs{background-blend-mode:normal}
+.nav-file-title,.nav-folder-title{border:var(--m-w) solid transparent;margin:3px 6px;padding:3px 8px;border-radius:0}
+.nav-file-title:hover,.nav-folder-title:hover{border-color:var(--m-line);background:var(--m-card)}
+.nav-file-title.is-active{background:var(--m-a1);color:var(--m-on-accent);border-color:var(--m-line);
+  font-weight:700;box-shadow:3px 3px 0 var(--m-sh);transform:translate(-1px,-1px)}
+.nav-file-title.is-active .nav-file-title-content{color:var(--m-on-accent)}
+.nav-folder-title.is-active{background:var(--m-a2);color:var(--m-on-accent)}
+.nav-files-container{padding-bottom:70px}
+
+/* 库切换栏 */
+.workspace-drawer-vault-switcher,.workspace-sidedock-vault-profile{
+  background:var(--m-card);border:var(--m-w) solid var(--m-line);box-shadow:3px 3px 0 var(--m-sh);margin:8px}
+
+/* 高亮 / 行内代码 / 标签 */
+.markdown-rendered mark,.cm-highlight{background:var(--m-hl);color:inherit;padding:0 4px;box-shadow:inset 0 -3px 0 var(--m-a1)}
+.markdown-rendered code,.cm-inline-code{border:1.5px solid var(--m-line);padding:1px 6px;border-radius:0;color:var(--m-on-accent)}
+a.tag,.cm-hashtag{font-weight:700;border-radius:99px;padding:1px 10px;color:var(--m-on-accent)!important}
+.cm-hashtag-begin{border-radius:99px 0 0 99px;border-width:var(--m-w)}
+.cm-hashtag-end{border-radius:0 99px 99px 0;border-width:var(--m-w)}
+
+/* 代码块 */
+.markdown-rendered pre,.HyperMD-codeblock-bg{border-radius:0}
+.markdown-rendered pre{background:var(--m-ink);color:var(--m-bg);border:var(--m-w) solid var(--m-line);box-shadow:5px 5px 0 var(--m-a1);padding:4px 8px}
+.markdown-rendered pre code{background:none;border:0;color:var(--m-bg)}
+
+/* 引用 */
+.markdown-rendered blockquote{border:var(--m-w) solid var(--m-line);border-left:12px solid var(--m-a4);padding:8px 16px}
+
+/* Callout */
+.callout{border:var(--m-w) solid var(--m-line);border-radius:0;background:var(--m-card);box-shadow:5px 5px 0 var(--m-sh);padding:0;mix-blend-mode:normal;--callout-color:0,0,0}
+.callout-title{background:var(--m-a2);color:var(--m-on-accent);border-bottom:var(--m-w) solid var(--m-line);padding:6px 12px;font-weight:700}
+.callout-title .callout-icon{color:var(--m-on-accent)}
+.callout-content{padding:8px 14px}
+.callout[data-callout="warning"] .callout-title,.callout[data-callout="danger"] .callout-title,.callout[data-callout="bug"] .callout-title{background:var(--m-a1)}
+.callout[data-callout="tip"] .callout-title,.callout[data-callout="example"] .callout-title{background:var(--m-a3)}
+.callout[data-callout="quote"] .callout-title,.callout[data-callout="abstract"] .callout-title{background:var(--m-a4);color:#fff}
+
+/* 任务列表 */
+input[type=checkbox]{border:var(--m-w) solid var(--m-line);border-radius:0;background:var(--m-card)}
+input[type=checkbox]:checked{background:var(--m-a2);border-color:var(--m-line)}
+input[type=checkbox]:checked::after{filter:none;background-color:var(--m-on-accent)}
+.markdown-rendered ul>li.task-list-item.is-checked{text-decoration:none;color:var(--m-mute)}
+
+/* 按钮 / 输入 / 弹窗 */
+button:not(.clickable-icon):not(.sidebar-toggle-button),.mod-cta{
+  border:var(--m-w) solid var(--m-line);border-radius:0;box-shadow:4px 4px 0 var(--m-sh);font-weight:700;
+  background:var(--m-card);color:var(--m-ink)}
+button.mod-cta{background:var(--m-a1);color:var(--m-on-accent)}
+button:not(.clickable-icon):active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--m-sh)}
+.modal,.menu,.suggestion-container,.prompt,.tooltip,.popover{
+  border:var(--m-w) solid var(--m-line);border-radius:0;box-shadow:8px 8px 0 var(--m-sh);background:var(--m-bg)}
+.suggestion-item.is-selected,.menu-item.selected,.menu-item:hover{background:var(--m-a3);color:var(--m-on-accent)}
+input[type=text],input[type=search],textarea,select,.dropdown{border:var(--m-w) solid var(--m-line);border-radius:0;box-shadow:none}
+input[type=text]:focus,input[type=search]:focus{box-shadow:3px 3px 0 var(--m-a2)}
+
+/* 空白标签页链接 */
+.empty-state-action{color:var(--m-a4);font-weight:700}
+.empty-state-action:hover{color:var(--m-a1);text-decoration:underline wavy}
+
+/* 滑块 / 开关 */
+.checkbox-container{border:var(--m-w) solid var(--m-line);border-radius:0;background:var(--m-card)}
+.checkbox-container.is-enabled{background:var(--m-a2)}
+.checkbox-container::after{border-radius:0;background:var(--m-line);box-shadow:none}
+
+/* 减少动效 */
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+
+/* ===== Memphis SVG 图标 ===== */
+/* 隐藏原图标子元素,用背景图替换;chevron/箭头保持原方向 */
+.theme-light svg.lucide-search,
+.theme-light svg.lucide-file-search,
+.theme-light svg.lucide-search{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%226.5%22%20fill%3D%22%2319C3B5%22/%3E%3Cpath%20d%3D%22M15%2015l6%206%22%20stroke-width%3D%223.5%22/%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%221.5%22%20fill%3D%22%23FFF8E7%22%20stroke%3D%22none%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-git-fork,
+.theme-light svg.lucide-git-branch,
+.theme-light svg.lucide-waypoints,
+.theme-light svg.lucide-network{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M6%208v3q0%202%202%202h8q2%200%202-2V8M12%2013v4%22/%3E%3Ccircle%20cx%3D%226%22%20cy%3D%226%22%20r%3D%223%22%20fill%3D%22%23FF5C93%22/%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%226%22%20r%3D%223%22%20fill%3D%22%2319C3B5%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2219%22%20r%3D%223%22%20fill%3D%22%23FFD23F%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-layout-dashboard,
+.theme-light svg.lucide-layout-grid{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%228%22%20height%3D%2210%22%20fill%3D%22%23FF5C93%22/%3E%3Crect%20x%3D%2213%22%20y%3D%223%22%20width%3D%228%22%20height%3D%225%22%20fill%3D%22%2319C3B5%22/%3E%3Crect%20x%3D%2213%22%20y%3D%2210%22%20width%3D%228%22%20height%3D%2211%22%20fill%3D%22%23FFD23F%22/%3E%3Crect%20x%3D%223%22%20y%3D%2215%22%20width%3D%228%22%20height%3D%226%22%20fill%3D%22%236A4CFF%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-calendar-days,
+.theme-light svg.lucide-calendar{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%225%22%20width%3D%2218%22%20height%3D%2216%22%20fill%3D%22%23FFD23F%22/%3E%3Crect%20x%3D%223%22%20y%3D%225%22%20width%3D%2218%22%20height%3D%225%22%20fill%3D%22%23FF5C93%22/%3E%3Cpath%20d%3D%22M8%202v5M16%202v5%22/%3E%3Ccircle%20cx%3D%228%22%20cy%3D%2215%22%20r%3D%221.2%22%20fill%3D%22%231a1a1a%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2215%22%20r%3D%221.2%22%20fill%3D%22%231a1a1a%22/%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2215%22%20r%3D%221.2%22%20fill%3D%22%231a1a1a%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-files,
+.theme-light svg.lucide-copy{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2212%22%20height%3D%2213%22%20fill%3D%22%236A4CFF%22/%3E%3Crect%20x%3D%229%22%20y%3D%228%22%20width%3D%2212%22%20height%3D%2213%22%20fill%3D%22%2319C3B5%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-terminal,
+.theme-light svg.lucide-square-terminal,
+.theme-light svg.lucide-terminal-square{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%222.5%22%20y%3D%224%22%20width%3D%2219%22%20height%3D%2216%22%20fill%3D%22%236A4CFF%22/%3E%3Cpath%20d%3D%22M7%209l4%203-4%203%22%20stroke%3D%22%23FFD23F%22%20stroke-width%3D%222.5%22/%3E%3Cpath%20d%3D%22M13%2016h4%22%20stroke%3D%22%23FF5C93%22%20stroke-width%3D%222.5%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-list-checks,
+.theme-light svg.lucide-layout-list,
+.theme-light svg.lucide-list{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%224%22%20width%3D%225%22%20height%3D%225%22%20fill%3D%22%23FF5C93%22/%3E%3Crect%20x%3D%223%22%20y%3D%2214%22%20width%3D%225%22%20height%3D%225%22%20fill%3D%22%2319C3B5%22/%3E%3Cpath%20d%3D%22M12%206.5h9M12%2016.5h9%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-square-pen,
+.theme-light svg.lucide-edit,
+.theme-light svg.lucide-pencil,
+.theme-light svg.lucide-edit-3{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%225%22%20width%3D%2215%22%20height%3D%2216%22%20fill%3D%22%23FFD23F%22/%3E%3Cpath%20d%3D%22M19%202.5l2.5%202.5-8.5%208.5-3.5%201%201-3.5z%22%20fill%3D%22%23FF5C93%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-folder-closed,
+.theme-light svg.lucide-folder,
+.theme-light svg.lucide-folder-open{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M3%205h7l2%203h9v12H3z%22%20fill%3D%22%23FFD23F%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-folder-plus{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M3%205h7l2%203h9v12H3z%22%20fill%3D%22%23FFD23F%22/%3E%3Cpath%20d%3D%22M12%2011v6M9%2014h6%22%20stroke-width%3D%222.5%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-arrow-up-narrow-wide,
+.theme-light svg.lucide-arrow-down-wide-narrow,
+.theme-light svg.lucide-arrow-up-down,
+.theme-light svg.lucide-arrow-down-narrow-wide{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%224%22%20width%3D%226%22%20height%3D%224%22%20fill%3D%22%23FF5C93%22/%3E%3Crect%20x%3D%223%22%20y%3D%2210%22%20width%3D%2211%22%20height%3D%224%22%20fill%3D%22%2319C3B5%22/%3E%3Crect%20x%3D%223%22%20y%3D%2216%22%20width%3D%2216%22%20height%3D%224%22%20fill%3D%22%23FFD23F%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-gallery-vertical,
+.theme-light svg.lucide-gallery-vertical-end,
+.theme-light svg.lucide-gallery-horizontal{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%225%22%20y%3D%223%22%20width%3D%2214%22%20height%3D%227%22%20fill%3D%22%2319C3B5%22/%3E%3Crect%20x%3D%225%22%20y%3D%2214%22%20width%3D%2214%22%20height%3D%227%22%20fill%3D%22%23FF5C93%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-chevrons-up-down,
+.theme-light svg.lucide-chevrons-down-up,
+.theme-light svg.lucide-chevrons-down-up{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M12%203l6%207H6z%22%20fill%3D%22%236A4CFF%22/%3E%3Cpath%20d%3D%22M12%2021l-6-7h12z%22%20fill%3D%22%23FF5C93%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-panel-left,
+.theme-light svg.lucide-panel-left-close,
+.theme-light svg.lucide-panel-left-open{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2218%22%20height%3D%2218%22%20fill%3D%22%23FFF8E7%22/%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%227%22%20height%3D%2218%22%20fill%3D%22%2319C3B5%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-panel-right,
+.theme-light svg.lucide-panel-right-close,
+.theme-light svg.lucide-panel-right-open{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2218%22%20height%3D%2218%22%20fill%3D%22%23FFF8E7%22/%3E%3Crect%20x%3D%2214%22%20y%3D%223%22%20width%3D%227%22%20height%3D%2218%22%20fill%3D%22%23FF5C93%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-bookmark,
+.theme-light svg.lucide-bookmarks{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M6%203h12v18l-6-4-6%204z%22%20fill%3D%22%23FF5C93%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-x{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M5%205l14%2014M19%205L5%2019%22%20stroke-width%3D%223.5%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-plus{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M12%204v16M4%2012h16%22%20stroke-width%3D%223.5%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-chevron-down,
+.theme-light svg.lucide-chevron-right,
+.theme-light svg.lucide-chevron-up,
+.theme-light svg.right-triangle{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M4%207h16l-8%2011z%22%20fill%3D%22%236A4CFF%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-arrow-left{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M20%2012H8%22%20stroke-width%3D%223%22/%3E%3Cpath%20d%3D%22M12%205l-8%207%208%207z%22%20fill%3D%22%23FFD23F%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-arrow-right{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M4%2012h12%22%20stroke-width%3D%223%22/%3E%3Cpath%20d%3D%22M12%205l8%207-8%207z%22%20fill%3D%22%23FFD23F%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-more-vertical,
+.theme-light svg.lucide-ellipsis-vertical{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%225%22%20r%3D%222.5%22%20fill%3D%22%23FF5C93%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%222.5%22%20fill%3D%22%2319C3B5%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2219%22%20r%3D%222.5%22%20fill%3D%22%23FFD23F%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-help-circle,
+.theme-light svg.lucide-circle-help{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%229%22%20fill%3D%22%2319C3B5%22/%3E%3Cpath%20d%3D%22M9%209.5q0-3%203-3t3%202.5q0%202-3%203v1.5%22%20stroke-width%3D%222.5%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2217%22%20r%3D%221.3%22%20fill%3D%22%231a1a1a%22%20stroke%3D%22none%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-settings,
+.theme-light svg.lucide-cog{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M12%202l2.5%203%203.5-.5.5%203.5%203%202.5-3%202.5-.5%203.5-3.5-.5L12%2022l-2.5-3-3.5.5-.5-3.5L2.5%2013l3-2.5.5-3.5%203.5.5z%22%20fill%3D%22%23FF5C93%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%223.5%22%20fill%3D%22%23FFD23F%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-refresh-cw-off,
+.theme-light svg.lucide-cloud-off,
+.theme-light svg.lucide-refresh-cw{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%229%22%20fill%3D%22%23FF5C93%22/%3E%3Cpath%20d%3D%22M5%205l14%2014%22%20stroke-width%3D%223%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-light svg.lucide-file,
+.theme-light svg.lucide-file-text{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M5%203h9l5%205v13H5z%22%20fill%3D%22%2319C3B5%22/%3E%3Cpath%20d%3D%22M14%203v5h5%22%20fill%3D%22%23FFD23F%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-search,
+.theme-dark svg.lucide-file-search,
+.theme-dark svg.lucide-search{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%226.5%22%20fill%3D%22%233DF2E0%22/%3E%3Cpath%20d%3D%22M15%2015l6%206%22%20stroke-width%3D%223.5%22/%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%221.5%22%20fill%3D%22%231B1530%22%20stroke%3D%22none%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-git-fork,
+.theme-dark svg.lucide-git-branch,
+.theme-dark svg.lucide-waypoints,
+.theme-dark svg.lucide-network{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M6%208v3q0%202%202%202h8q2%200%202-2V8M12%2013v4%22/%3E%3Ccircle%20cx%3D%226%22%20cy%3D%226%22%20r%3D%223%22%20fill%3D%22%23FF4F9A%22/%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%226%22%20r%3D%223%22%20fill%3D%22%233DF2E0%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2219%22%20r%3D%223%22%20fill%3D%22%23FFD93D%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-layout-dashboard,
+.theme-dark svg.lucide-layout-grid{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%228%22%20height%3D%2210%22%20fill%3D%22%23FF4F9A%22/%3E%3Crect%20x%3D%2213%22%20y%3D%223%22%20width%3D%228%22%20height%3D%225%22%20fill%3D%22%233DF2E0%22/%3E%3Crect%20x%3D%2213%22%20y%3D%2210%22%20width%3D%228%22%20height%3D%2211%22%20fill%3D%22%23FFD93D%22/%3E%3Crect%20x%3D%223%22%20y%3D%2215%22%20width%3D%228%22%20height%3D%226%22%20fill%3D%22%239B7BFF%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-calendar-days,
+.theme-dark svg.lucide-calendar{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%225%22%20width%3D%2218%22%20height%3D%2216%22%20fill%3D%22%23FFD93D%22/%3E%3Crect%20x%3D%223%22%20y%3D%225%22%20width%3D%2218%22%20height%3D%225%22%20fill%3D%22%23FF4F9A%22/%3E%3Cpath%20d%3D%22M8%202v5M16%202v5%22/%3E%3Ccircle%20cx%3D%228%22%20cy%3D%2215%22%20r%3D%221.2%22%20fill%3D%22%23F6EEDD%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2215%22%20r%3D%221.2%22%20fill%3D%22%23F6EEDD%22/%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2215%22%20r%3D%221.2%22%20fill%3D%22%23F6EEDD%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-files,
+.theme-dark svg.lucide-copy{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2212%22%20height%3D%2213%22%20fill%3D%22%239B7BFF%22/%3E%3Crect%20x%3D%229%22%20y%3D%228%22%20width%3D%2212%22%20height%3D%2213%22%20fill%3D%22%233DF2E0%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-terminal,
+.theme-dark svg.lucide-square-terminal,
+.theme-dark svg.lucide-terminal-square{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%222.5%22%20y%3D%224%22%20width%3D%2219%22%20height%3D%2216%22%20fill%3D%22%239B7BFF%22/%3E%3Cpath%20d%3D%22M7%209l4%203-4%203%22%20stroke%3D%22%23FFD93D%22%20stroke-width%3D%222.5%22/%3E%3Cpath%20d%3D%22M13%2016h4%22%20stroke%3D%22%23FF4F9A%22%20stroke-width%3D%222.5%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-list-checks,
+.theme-dark svg.lucide-layout-list,
+.theme-dark svg.lucide-list{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%224%22%20width%3D%225%22%20height%3D%225%22%20fill%3D%22%23FF4F9A%22/%3E%3Crect%20x%3D%223%22%20y%3D%2214%22%20width%3D%225%22%20height%3D%225%22%20fill%3D%22%233DF2E0%22/%3E%3Cpath%20d%3D%22M12%206.5h9M12%2016.5h9%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-square-pen,
+.theme-dark svg.lucide-edit,
+.theme-dark svg.lucide-pencil,
+.theme-dark svg.lucide-edit-3{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%225%22%20width%3D%2215%22%20height%3D%2216%22%20fill%3D%22%23FFD93D%22/%3E%3Cpath%20d%3D%22M19%202.5l2.5%202.5-8.5%208.5-3.5%201%201-3.5z%22%20fill%3D%22%23FF4F9A%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-folder-closed,
+.theme-dark svg.lucide-folder,
+.theme-dark svg.lucide-folder-open{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M3%205h7l2%203h9v12H3z%22%20fill%3D%22%23FFD93D%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-folder-plus{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M3%205h7l2%203h9v12H3z%22%20fill%3D%22%23FFD93D%22/%3E%3Cpath%20d%3D%22M12%2011v6M9%2014h6%22%20stroke-width%3D%222.5%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-arrow-up-narrow-wide,
+.theme-dark svg.lucide-arrow-down-wide-narrow,
+.theme-dark svg.lucide-arrow-up-down,
+.theme-dark svg.lucide-arrow-down-narrow-wide{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%224%22%20width%3D%226%22%20height%3D%224%22%20fill%3D%22%23FF4F9A%22/%3E%3Crect%20x%3D%223%22%20y%3D%2210%22%20width%3D%2211%22%20height%3D%224%22%20fill%3D%22%233DF2E0%22/%3E%3Crect%20x%3D%223%22%20y%3D%2216%22%20width%3D%2216%22%20height%3D%224%22%20fill%3D%22%23FFD93D%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-gallery-vertical,
+.theme-dark svg.lucide-gallery-vertical-end,
+.theme-dark svg.lucide-gallery-horizontal{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%225%22%20y%3D%223%22%20width%3D%2214%22%20height%3D%227%22%20fill%3D%22%233DF2E0%22/%3E%3Crect%20x%3D%225%22%20y%3D%2214%22%20width%3D%2214%22%20height%3D%227%22%20fill%3D%22%23FF4F9A%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-chevrons-up-down,
+.theme-dark svg.lucide-chevrons-down-up,
+.theme-dark svg.lucide-chevrons-down-up{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M12%203l6%207H6z%22%20fill%3D%22%239B7BFF%22/%3E%3Cpath%20d%3D%22M12%2021l-6-7h12z%22%20fill%3D%22%23FF4F9A%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-panel-left,
+.theme-dark svg.lucide-panel-left-close,
+.theme-dark svg.lucide-panel-left-open{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2218%22%20height%3D%2218%22%20fill%3D%22%231B1530%22/%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%227%22%20height%3D%2218%22%20fill%3D%22%233DF2E0%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-panel-right,
+.theme-dark svg.lucide-panel-right-close,
+.theme-dark svg.lucide-panel-right-open{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%223%22%20y%3D%223%22%20width%3D%2218%22%20height%3D%2218%22%20fill%3D%22%231B1530%22/%3E%3Crect%20x%3D%2214%22%20y%3D%223%22%20width%3D%227%22%20height%3D%2218%22%20fill%3D%22%23FF4F9A%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-bookmark,
+.theme-dark svg.lucide-bookmarks{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M6%203h12v18l-6-4-6%204z%22%20fill%3D%22%23FF4F9A%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-x{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M5%205l14%2014M19%205L5%2019%22%20stroke-width%3D%223.5%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-plus{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M12%204v16M4%2012h16%22%20stroke-width%3D%223.5%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-chevron-down,
+.theme-dark svg.lucide-chevron-right,
+.theme-dark svg.lucide-chevron-up,
+.theme-dark svg.right-triangle{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M4%207h16l-8%2011z%22%20fill%3D%22%239B7BFF%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-arrow-left{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M20%2012H8%22%20stroke-width%3D%223%22/%3E%3Cpath%20d%3D%22M12%205l-8%207%208%207z%22%20fill%3D%22%23FFD93D%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-arrow-right{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M4%2012h12%22%20stroke-width%3D%223%22/%3E%3Cpath%20d%3D%22M12%205l8%207-8%207z%22%20fill%3D%22%23FFD93D%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-more-vertical,
+.theme-dark svg.lucide-ellipsis-vertical{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%225%22%20r%3D%222.5%22%20fill%3D%22%23FF4F9A%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%222.5%22%20fill%3D%22%233DF2E0%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2219%22%20r%3D%222.5%22%20fill%3D%22%23FFD93D%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-help-circle,
+.theme-dark svg.lucide-circle-help{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%229%22%20fill%3D%22%233DF2E0%22/%3E%3Cpath%20d%3D%22M9%209.5q0-3%203-3t3%202.5q0%202-3%203v1.5%22%20stroke-width%3D%222.5%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2217%22%20r%3D%221.3%22%20fill%3D%22%23F6EEDD%22%20stroke%3D%22none%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-settings,
+.theme-dark svg.lucide-cog{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M12%202l2.5%203%203.5-.5.5%203.5%203%202.5-3%202.5-.5%203.5-3.5-.5L12%2022l-2.5-3-3.5.5-.5-3.5L2.5%2013l3-2.5.5-3.5%203.5.5z%22%20fill%3D%22%23FF4F9A%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%223.5%22%20fill%3D%22%23FFD93D%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-refresh-cw-off,
+.theme-dark svg.lucide-cloud-off,
+.theme-dark svg.lucide-refresh-cw{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%229%22%20fill%3D%22%23FF4F9A%22/%3E%3Cpath%20d%3D%22M5%205l14%2014%22%20stroke-width%3D%223%22/%3E%3C/svg%3E") center/contain no-repeat}
+.theme-dark svg.lucide-file,
+.theme-dark svg.lucide-file-text{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22miter%22%20stroke-linecap%3D%22square%22%3E%3Cpath%20d%3D%22M5%203h9l5%205v13H5z%22%20fill%3D%22%233DF2E0%22/%3E%3Cpath%20d%3D%22M14%203v5h5%22%20fill%3D%22%23FFD93D%22/%3E%3C/svg%3E") center/contain no-repeat}
+svg.lucide-arrow-down-narrow-wide,
+svg.lucide-arrow-down-wide-narrow,
+svg.lucide-arrow-left,
+svg.lucide-arrow-right,
+svg.lucide-arrow-up-down,
+svg.lucide-arrow-up-narrow-wide,
+svg.lucide-bookmark,
+svg.lucide-bookmarks,
+svg.lucide-calendar,
+svg.lucide-calendar-days,
+svg.lucide-chevron-down,
+svg.lucide-chevron-right,
+svg.lucide-chevron-up,
+svg.lucide-chevrons-down-up,
+svg.lucide-chevrons-up-down,
+svg.lucide-circle-help,
+svg.lucide-cloud-off,
+svg.lucide-cog,
+svg.lucide-copy,
+svg.lucide-edit,
+svg.lucide-edit-3,
+svg.lucide-ellipsis-vertical,
+svg.lucide-file,
+svg.lucide-file-search,
+svg.lucide-file-text,
+svg.lucide-files,
+svg.lucide-folder,
+svg.lucide-folder-closed,
+svg.lucide-folder-open,
+svg.lucide-folder-plus,
+svg.lucide-gallery-horizontal,
+svg.lucide-gallery-vertical,
+svg.lucide-gallery-vertical-end,
+svg.lucide-git-branch,
+svg.lucide-git-fork,
+svg.lucide-help-circle,
+svg.lucide-layout-dashboard,
+svg.lucide-layout-grid,
+svg.lucide-layout-list,
+svg.lucide-list,
+svg.lucide-list-checks,
+svg.lucide-more-vertical,
+svg.lucide-network,
+svg.lucide-panel-left,
+svg.lucide-panel-left-close,
+svg.lucide-panel-left-open,
+svg.lucide-panel-right,
+svg.lucide-panel-right-close,
+svg.lucide-panel-right-open,
+svg.lucide-pencil,
+svg.lucide-plus,
+svg.lucide-refresh-cw,
+svg.lucide-refresh-cw-off,
+svg.lucide-search,
+svg.lucide-settings,
+svg.lucide-square-pen,
+svg.lucide-square-terminal,
+svg.lucide-terminal,
+svg.lucide-terminal-square,
+svg.lucide-waypoints,
+svg.lucide-x,
+svg.right-triangle{stroke:none!important;fill:none!important}
+svg.lucide-arrow-down-narrow-wide > *,
+svg.lucide-arrow-down-wide-narrow > *,
+svg.lucide-arrow-left > *,
+svg.lucide-arrow-right > *,
+svg.lucide-arrow-up-down > *,
+svg.lucide-arrow-up-narrow-wide > *,
+svg.lucide-bookmark > *,
+svg.lucide-bookmarks > *,
+svg.lucide-calendar > *,
+svg.lucide-calendar-days > *,
+svg.lucide-chevron-down > *,
+svg.lucide-chevron-right > *,
+svg.lucide-chevron-up > *,
+svg.lucide-chevrons-down-up > *,
+svg.lucide-chevrons-up-down > *,
+svg.lucide-circle-help > *,
+svg.lucide-cloud-off > *,
+svg.lucide-cog > *,
+svg.lucide-copy > *,
+svg.lucide-edit > *,
+svg.lucide-edit-3 > *,
+svg.lucide-ellipsis-vertical > *,
+svg.lucide-file > *,
+svg.lucide-file-search > *,
+svg.lucide-file-text > *,
+svg.lucide-files > *,
+svg.lucide-folder > *,
+svg.lucide-folder-closed > *,
+svg.lucide-folder-open > *,
+svg.lucide-folder-plus > *,
+svg.lucide-gallery-horizontal > *,
+svg.lucide-gallery-vertical > *,
+svg.lucide-gallery-vertical-end > *,
+svg.lucide-git-branch > *,
+svg.lucide-git-fork > *,
+svg.lucide-help-circle > *,
+svg.lucide-layout-dashboard > *,
+svg.lucide-layout-grid > *,
+svg.lucide-layout-list > *,
+svg.lucide-list > *,
+svg.lucide-list-checks > *,
+svg.lucide-more-vertical > *,
+svg.lucide-network > *,
+svg.lucide-panel-left > *,
+svg.lucide-panel-left-close > *,
+svg.lucide-panel-left-open > *,
+svg.lucide-panel-right > *,
+svg.lucide-panel-right-close > *,
+svg.lucide-panel-right-open > *,
+svg.lucide-pencil > *,
+svg.lucide-plus > *,
+svg.lucide-refresh-cw > *,
+svg.lucide-refresh-cw-off > *,
+svg.lucide-search > *,
+svg.lucide-settings > *,
+svg.lucide-square-pen > *,
+svg.lucide-square-terminal > *,
+svg.lucide-terminal > *,
+svg.lucide-terminal-square > *,
+svg.lucide-waypoints > *,
+svg.lucide-x > *,
+svg.right-triangle > *{display:none!important}
+svg.lucide-chevron-right{transform:rotate(-90deg)}
+svg.lucide-chevron-up{transform:rotate(180deg)}
+svg.lucide-arrow-down-wide-narrow{transform:scaleY(-1)}
+.is-collapsed .right-triangle,.nav-folder.is-collapsed>.nav-folder-title .right-triangle{/* Obsidian 自带旋转 */}
+
+/* 标签页:直角 */
+body{--tab-radius:0;--tab-radius-active:0;--tab-curve:0;--tab-outline-width:0}
+.workspace-tab-header,.workspace-tab-header-inner,.workspace-tab-header.is-active,
+.workspace-tab-header.is-active .workspace-tab-header-inner,
+.workspace-tab-header-inner-close-button,.workspace-tab-header-new-tab{border-radius:0!important}
+.workspace-tab-header.is-active{box-shadow:none}
+.workspace-tab-header-inner::before,.workspace-tab-header-inner::after{display:none!important}
+
+
+/* ===== 窗口按钮 ===== */
+/* .titlebar 是盖在标签栏上面的透明层,不能给背景,否则会把标签页盖住 */
+.titlebar,.titlebar-inner{background:transparent!important}
+.titlebar-button-container .titlebar-button{width:46px;border-left:var(--m-w) solid var(--m-line);border-radius:0;background-color:var(--m-bg);background-position:center;background-repeat:no-repeat;background-size:16px}
+.titlebar-button-container .titlebar-button>*{display:none!important}
+.titlebar-button-container .titlebar-button:hover{background-color:var(--m-a3)}
+.titlebar-button-container .titlebar-button.mod-close:hover{background-color:var(--m-a1)}
+.titlebar-button-container .titlebar-button:active{background-color:var(--m-a2)}
+.theme-light .titlebar-button.mod-minimize{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%222%22%20y%3D%229%22%20width%3D%2212%22%20height%3D%224%22%20fill%3D%22%23FFD23F%22/%3E%3C/svg%3E")}
+.theme-light .titlebar-button.mod-maximize{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%222%22%20y%3D%222%22%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22%2319C3B5%22/%3E%3C/svg%3E")}
+.theme-light .titlebar-button.mod-close{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22square%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%226.5%22%20fill%3D%22%23FF5C93%22/%3E%3Cpath%20d%3D%22M5.5%205.5l5%205M10.5%205.5l-5%205%22/%3E%3C/svg%3E")}
+.theme-dark .titlebar-button.mod-minimize{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%222%22%20y%3D%229%22%20width%3D%2212%22%20height%3D%224%22%20fill%3D%22%23FFD93D%22/%3E%3C/svg%3E")}
+.theme-dark .titlebar-button.mod-maximize{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22square%22%3E%3Crect%20x%3D%222%22%20y%3D%222%22%20width%3D%2212%22%20height%3D%2212%22%20fill%3D%22%233DF2E0%22/%3E%3C/svg%3E")}
+.theme-dark .titlebar-button.mod-close{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22%23F6EEDD%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22square%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%226.5%22%20fill%3D%22%23FF4F9A%22/%3E%3Cpath%20d%3D%22M5.5%205.5l5%205M10.5%205.5l-5%205%22/%3E%3C/svg%3E")}
+
+/* ===== 标题 H1–H6(正式版,已合并旧的 H1–H3 规则)===== */
+.markdown-rendered h1,.markdown-rendered h2,.markdown-rendered h3,.markdown-rendered h4,.markdown-rendered h5,.markdown-rendered h6{margin-bottom:.6em}
+.markdown-rendered h1,.inline-title{background:var(--m-a3);color:var(--m-on-accent)!important;border:var(--m-w) solid var(--m-line);box-shadow:5px 5px 0 var(--m-sh);padding:2px 14px;transform:rotate(-1deg);display:inline-block}
+.markdown-rendered h2{display:flex;align-items:center;gap:10px;padding-bottom:14px;
+  background:conic-gradient(from -45deg at bottom,transparent,var(--m-a1) 1deg 90deg,transparent 91deg) bottom left/16px 8px repeat-x}
+.markdown-rendered h2::before{content:"";flex:none;width:.7em;height:.7em;background:var(--m-a1);border:var(--m-w) solid var(--m-line);border-radius:50%}
+.markdown-rendered h3{display:flex;align-items:center;gap:9px;padding-bottom:4px;border-bottom:var(--m-w) dashed var(--m-a2)}
+.markdown-rendered h3::before{content:"";flex:none;width:.65em;height:.65em;background:var(--m-a2);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.markdown-rendered h4{display:flex;align-items:center;gap:9px;color:var(--m-a4)}
+.markdown-rendered h4::before{content:"";flex:none;width:.55em;height:.55em;background:var(--m-a4);transform:rotate(45deg)}
+.markdown-rendered h5{display:flex;align-items:center;gap:8px}
+.markdown-rendered h5::before{content:"";flex:none;width:.6em;height:.6em;background:var(--m-a3);border:2px solid var(--m-line);border-radius:50%}
+.markdown-rendered h6{display:flex;align-items:center;gap:8px;color:var(--m-mute)}
+.markdown-rendered h6::before{content:"";flex:none;width:1.5em;height:.5em;background:radial-gradient(var(--m-a1) 2px,transparent 2.5px) 0 0/.5em .5em repeat-x}
+/* 编辑模式(实时预览) */
+.HyperMD-header-1{display:block;background:none;border:0;box-shadow:none;transform:none}
+.HyperMD-header-1 .cm-header-1{background:var(--m-a3);color:var(--m-on-accent);border:var(--m-w) solid var(--m-line);box-shadow:4px 4px 0 var(--m-sh);padding:0 10px}
+.cm-header-2{background:linear-gradient(transparent 62%,var(--m-a1) 62%)}
+.cm-header-3{border-bottom:var(--m-w) dashed var(--m-a2)}
+.cm-header-4{color:var(--m-a4)}
+.cm-header-5{color:var(--m-a1)}
+.cm-header-6{color:var(--m-mute)}
+
+/* ===== 修复:标签页对比度 + Tooltip ===== */
+body{
+  --tab-container-background:var(--m-bg);
+  --tab-background-active:var(--m-a3);
+  --tab-text-color:var(--m-ink);
+  --tab-text-color-active:var(--m-on-accent);
+  --tab-text-color-focused:var(--m-ink);
+  --tab-text-color-focused-active:var(--m-on-accent);
+  --tab-text-color-focused-active-current:var(--m-on-accent);
+  --tab-text-color-focused-highlighted:var(--m-on-accent);
+}
+/* 未选中:青灰底、普通字;选中:黄底、粗体、硬阴影 */
+.workspace-tab-header:not(.is-active) .workspace-tab-header-inner{background:var(--m-side);color:var(--m-ink)}
+.workspace-tab-header:not(.is-active) .workspace-tab-header-inner-title{color:var(--m-ink);font-weight:400}
+.workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner{background:var(--m-card)}
+.workspace-tab-header.is-active .workspace-tab-header-inner{background:var(--m-a3);color:var(--m-on-accent)}
+.workspace-tab-header.is-active .workspace-tab-header-inner-title,
+.workspace-tab-header.is-active .workspace-tab-header-inner-icon,
+.workspace-tab-header.is-active .workspace-tab-header-inner-close-button{color:var(--m-on-accent);font-weight:800}
+.workspace-tab-header.is-active{box-shadow:3px -3px 0 var(--m-sh)!important;position:relative;z-index:2}
+.workspace-tab-header.is-active .workspace-tab-header-inner-title::after{content:"";display:block;height:3px;background:var(--m-a1);margin-top:1px}
+
+/* Tooltip:黄底黑字,两种模式都清晰 */
+.tooltip,.tooltip.mod-right,.tooltip.mod-left,.tooltip.mod-top,.tooltip.mod-bottom{
+  background:var(--m-a3)!important;color:#1a1a1a!important;
+  border:var(--m-w) solid var(--m-line);border-radius:0;box-shadow:4px 4px 0 var(--m-sh);
+  font-weight:700;padding:4px 10px}
+.tooltip *,.tooltip .tooltip-text{color:#1a1a1a!important}
+.tooltip .tooltip-arrow{display:none}
+.tooltip kbd,.tooltip .setting-hotkey{background:#fff;color:#1a1a1a!important;border:2px solid #1a1a1a;border-radius:0;padding:0 5px}
+
+/* ===== 标签页强制着色(提高优先级 + !important)===== */
+body .workspace-tabs .workspace-tab-header,
+body .workspace-tabs .workspace-tab-header .workspace-tab-header-inner{
+  border-radius:0!important;box-shadow:none!important}
+/* 未选中 */
+body .workspace-tabs .workspace-tab-header:not(.is-active),
+body .workspace-tabs .workspace-tab-header:not(.is-active) .workspace-tab-header-inner{
+  background:var(--m-side)!important}
+body .workspace-tabs .workspace-tab-header:not(.is-active) *{color:var(--m-ink)!important}
+body .workspace-tabs .workspace-tab-header:not(.is-active):hover,
+body .workspace-tabs .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner{
+  background:var(--m-card)!important}
+/* 选中:黄底 + 深色字(两种模式都用固定深色,保证可读) */
+body .workspace-tabs .workspace-tab-header.is-active,
+body .workspace-tabs .workspace-tab-header.is-active .workspace-tab-header-inner{
+  background:var(--m-a3)!important}
+body .workspace-tabs .workspace-tab-header.is-active *{color:#1a1a1a!important;font-weight:800}
+body .workspace-tabs .workspace-tab-header.is-active{
+  border:var(--m-w) solid var(--m-line)!important;border-bottom:0!important;
+  box-shadow:3px -3px 0 var(--m-sh)!important}
+body .workspace-tabs .workspace-tab-header:not(.is-active){border:var(--m-w) solid var(--m-line)!important;border-bottom:0!important}
+/* 标签栏底部线 */
+body .workspace-tab-header-container{background:var(--m-bg)!important;border-bottom:var(--m-w) solid var(--m-line)!important}
