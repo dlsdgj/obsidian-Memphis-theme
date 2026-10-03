@@ -31,7 +31,7 @@
 
 ## 截图
 
-> Screenshots: place `screenshot.png` in repo root before submitting to community-themes.json.
+![screenshot](screenshot.png)
 
 ---
 
