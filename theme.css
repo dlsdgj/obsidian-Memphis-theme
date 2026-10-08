@@ -725,3 +725,147 @@ body.is-mobile .menu-grabber,body.is-mobile .modal-grabber{background:var(--m-in
 /* 其他移动端弹窗/抽屉 */
 body.is-mobile .modal,body.is-mobile .modal-container .modal{background:var(--m-bg)!important;color:var(--m-ink)}
 body.is-mobile .workspace-drawer{background:var(--m-side)!important}
+
+/* ===== 顶部按钮统一 v3 =====
+   做法:所有顶栏元素统一"贴底对齐"(基准线=标签栏底线),
+   标签高 = 顶栏高-8px,按钮 30×30,用同一个 calc 偏移让它们的中线重合。
+   不再改 --header-height,也不动容器左右内边距(那是 Obsidian 给窗口按钮留的位置)。 */
+body:not(.is-mobile){--m-btn:30px;--m-gap:8px;--m-tab-h:calc(var(--header-height) - 8px);--m-off:calc((var(--m-tab-h) - var(--m-btn)) / 2)}
+
+/* 容器:清掉上下内边距,子项一律贴底 */
+body:not(.is-mobile) .workspace-tab-header-container{display:flex!important;align-items:flex-end!important;box-sizing:border-box;height:var(--header-height)!important;padding-top:0!important;padding-bottom:0!important}
+body:not(.is-mobile) .workspace-tab-header-container-inner{align-self:stretch!important;align-items:flex-end!important;height:100%;margin-top:0!important;margin-bottom:0!important;padding-top:0!important;padding-bottom:0!important}
+
+/* 主区标签页:固定高度,贴底 */
+body:not(.is-mobile) .workspace-tab-header-container .workspace-tab-header{align-self:flex-end;height:var(--m-tab-h);margin-top:0!important;margin-bottom:0!important;box-sizing:border-box}
+
+/* 侧栏开关 */
+body:not(.is-mobile) .sidebar-toggle-button{align-self:flex-end!important;align-items:center!important;height:var(--m-btn)!important;margin:0 0 var(--m-off)!important;padding:0 var(--m-gap)!important;background:transparent!important}
+body:not(.is-mobile) .sidebar-toggle-button .clickable-icon{width:var(--m-btn)!important;height:var(--m-btn)!important;margin:0!important;padding:0!important;box-sizing:border-box}
+body:not(.is-mobile) .sidebar-toggle-button .clickable-icon svg{width:18px!important;height:18px!important}
+
+/* 侧栏里的 文件/搜索/… 标签 → 同款方块 */
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-tab-header-container-inner,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-tab-header-container-inner{gap:var(--m-gap)}
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-tab-header-container .workspace-tab-header,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-tab-header-container .workspace-tab-header{
+  width:var(--m-btn)!important;height:var(--m-btn)!important;min-width:0;margin:0 0 var(--m-off)!important;padding:0!important;box-sizing:border-box;
+  border:var(--m-w) solid var(--m-line)!important;background:var(--m-card)!important;
+  box-shadow:2px 2px 0 var(--m-sh)!important;display:grid;place-items:center}
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-tab-header-container .workspace-tab-header .workspace-tab-header-inner,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-tab-header-container .workspace-tab-header .workspace-tab-header-inner{
+  width:100%;height:100%;padding:0!important;background:transparent!important;display:grid;place-items:center}
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-tab-header-container .workspace-tab-header.is-active,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-tab-header-container .workspace-tab-header.is-active{background:var(--m-a3)!important}
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-tab-header-container .workspace-tab-header:not(.is-active):hover,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-tab-header-container .workspace-tab-header:not(.is-active):hover{background:var(--m-a2)!important}
+body:not(.is-mobile) .workspace-tab-header-container .workspace-tab-header-inner-icon svg{width:18px;height:18px}
+
+/* 新建标签 + / 标签列表 ▼ */
+body:not(.is-mobile) .workspace-tab-header-new-tab,
+body:not(.is-mobile) .workspace-tab-header-tab-list{align-self:flex-end!important;margin:0 0 var(--m-off) var(--m-gap)!important;padding:0!important;height:var(--m-btn);display:flex;background:transparent!important}
+body:not(.is-mobile) .workspace-tab-header-new-tab .clickable-icon,
+body:not(.is-mobile) .workspace-tab-header-tab-list .clickable-icon{
+  width:var(--m-btn);height:var(--m-btn);box-sizing:border-box;display:grid;place-items:center;padding:0;border-radius:0;
+  border:var(--m-w) solid var(--m-line);background:var(--m-card);box-shadow:2px 2px 0 var(--m-sh)}
+body:not(.is-mobile) .workspace-tab-header-new-tab .clickable-icon svg,
+body:not(.is-mobile) .workspace-tab-header-tab-list .clickable-icon svg{width:16px;height:16px}
+
+/* 窗口按钮:同款方块,同一条基准线 */
+body:not(.is-mobile) .titlebar-button-container{height:var(--header-height);align-items:flex-end;gap:var(--m-gap);padding:0 14px calc(var(--m-w) + var(--m-off)) 0;box-sizing:border-box;background:transparent!important}
+body:not(.is-mobile) .titlebar-button-container .titlebar-button{
+  width:var(--m-btn)!important;height:var(--m-btn)!important;padding:0;box-sizing:border-box;
+  border:var(--m-w) solid var(--m-line)!important;box-shadow:2px 2px 0 var(--m-sh)}
+
+/* 悬停/按下 */
+body:not(.is-mobile) .sidebar-toggle-button .clickable-icon:hover,
+body:not(.is-mobile) .workspace-tab-header-new-tab .clickable-icon:hover,
+body:not(.is-mobile) .workspace-tab-header-tab-list .clickable-icon:hover{background:var(--m-a3)!important;outline:0}
+body:not(.is-mobile) .sidebar-toggle-button .clickable-icon:active,
+body:not(.is-mobile) .workspace-tab-header-new-tab .clickable-icon:active,
+body:not(.is-mobile) .workspace-tab-header-tab-list .clickable-icon:active,
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-tab-header-container .workspace-tab-header:active,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-tab-header-container .workspace-tab-header:active,
+body:not(.is-mobile) .titlebar-button-container .titlebar-button:active{transform:translate(2px,2px);box-shadow:none!important}
+
+
+/* ===== 顶栏按钮合并成组 v4 =====
+   相邻按钮拼成一条分段按钮:间距 0、相邻边框重叠成一条线、只剩一条连续的底部阴影。
+   分组:[侧栏标签们] / [+ ▼ 右侧栏开关] / [最小化 最大化 关闭];左侧栏开关单独。 */
+body:not(.is-mobile){--m-ov:calc(var(--m-w) * -1)}
+
+/* 1 侧栏标签(文件/搜索/…)→ 一条 */
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-tab-header-container-inner,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-tab-header-container-inner{gap:0!important}
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-tab-header-container .workspace-tab-header + .workspace-tab-header,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-tab-header-container .workspace-tab-header + .workspace-tab-header{margin-left:var(--m-ov)!important}
+
+/* 2 + ▼ 右侧栏开关 → 一条 */
+body:not(.is-mobile) .workspace-tab-header-new-tab + .workspace-tab-header-tab-list{margin-left:var(--m-ov)!important}
+body:not(.is-mobile) .workspace-tab-header-tab-list + .sidebar-toggle-button.mod-right{margin-left:var(--m-ov)!important;padding-left:0!important}
+
+/* 3 窗口三键 → 一条 */
+body:not(.is-mobile) .titlebar-button-container{gap:0!important}
+body:not(.is-mobile) .titlebar-button-container .titlebar-button + .titlebar-button{margin-left:var(--m-ov)}
+
+/* 悬停时压到相邻按钮上方,边框不被盖住 */
+body:not(.is-mobile) .workspace-tab-header-container .workspace-tab-header:hover,
+body:not(.is-mobile) .titlebar-button-container .titlebar-button:hover,
+body:not(.is-mobile) .workspace-tab-header-container .clickable-icon:hover{position:relative;z-index:2}
+
+
+/* ===== 顶栏按钮 · 方案 E(裸图标 + 粉色下划线指示)v5 =====
+   去掉按钮的黑边/阴影/底色;选中=底部 3px 粉线(呼应标签页),悬停=淡灰底。 */
+body:not(.is-mobile){--m-ov:0px;--m-hover:color-mix(in srgb,var(--m-ink) 10%,transparent)}
+
+/* 统一:无框、无影、透明底 */
+body:not(.is-mobile) .sidebar-toggle-button .clickable-icon,
+body:not(.is-mobile) .workspace-tab-header-new-tab .clickable-icon,
+body:not(.is-mobile) .workspace-tab-header-tab-list .clickable-icon,
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-tab-header-container .workspace-tab-header,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-tab-header-container .workspace-tab-header,
+body:not(.is-mobile) .titlebar-button-container .titlebar-button{
+  border:0!important;box-shadow:none!important;background-color:transparent!important;outline:0!important;transform:none!important}
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-tab-header-container .workspace-tab-header,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-tab-header-container .workspace-tab-header{background:transparent!important}
+
+/* 图标淡化,悬停/选中恢复 */
+body:not(.is-mobile) .sidebar-toggle-button .clickable-icon svg,
+body:not(.is-mobile) .workspace-tab-header-new-tab .clickable-icon svg,
+body:not(.is-mobile) .workspace-tab-header-tab-list .clickable-icon svg,
+body:not(.is-mobile) .workspace-tab-header-container .workspace-tab-header-inner-icon{opacity:.75}
+body:not(.is-mobile) .sidebar-toggle-button .clickable-icon:hover svg,
+body:not(.is-mobile) .workspace-tab-header-new-tab .clickable-icon:hover svg,
+body:not(.is-mobile) .workspace-tab-header-tab-list .clickable-icon:hover svg,
+body:not(.is-mobile) .workspace-tab-header-container .workspace-tab-header:hover .workspace-tab-header-inner-icon,
+body:not(.is-mobile) .workspace-tab-header-container .workspace-tab-header.is-active .workspace-tab-header-inner-icon{opacity:1}
+
+/* 选中:粉色下划线 */
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-tab-header-container .workspace-tab-header.is-active,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-tab-header-container .workspace-tab-header.is-active{
+  background:transparent!important;box-shadow:inset 0 -3px 0 var(--m-a1)!important}
+
+/* 悬停:淡灰底 */
+body:not(.is-mobile) .sidebar-toggle-button .clickable-icon:hover,
+body:not(.is-mobile) .workspace-tab-header-new-tab .clickable-icon:hover,
+body:not(.is-mobile) .workspace-tab-header-tab-list .clickable-icon:hover,
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-tab-header-container .workspace-tab-header:not(.is-active):hover,
+body:not(.is-mobile) .workspace-split.mod-right-split .workspace-tab-header-container .workspace-tab-header:not(.is-active):hover,
+body:not(.is-mobile) .titlebar-button-container .titlebar-button:hover{background-color:var(--m-hover)!important;background:var(--m-hover)!important}
+body:not(.is-mobile) .titlebar-button-container .titlebar-button.mod-close:hover{background-color:var(--m-a1)!important}
+
+/* 按下:略深一档,不位移 */
+body:not(.is-mobile) .sidebar-toggle-button .clickable-icon:active,
+body:not(.is-mobile) .workspace-tab-header-new-tab .clickable-icon:active,
+body:not(.is-mobile) .workspace-tab-header-tab-list .clickable-icon:active,
+body:not(.is-mobile) .titlebar-button-container .titlebar-button:active{background-color:color-mix(in srgb,var(--m-ink) 18%,transparent)!important}
+
+
+/* ===== 左上角 collapse(在 .workspace-ribbon 里,竖向布局)v6 =====
+   它不在标签栏容器里,v3 的"贴底对齐"对它无效且会把它推到右边,这里单独处理:
+   占满顶栏高度、水平居中,按钮底边与侧栏 Files/Search 同一基准。--m-dy 正数=再往下。 */
+body:not(.is-mobile){--m-dy:0px}
+body:not(.is-mobile) .workspace-ribbon .sidebar-toggle-button{
+  align-self:stretch!important;display:flex!important;align-items:flex-end!important;justify-content:center!important;
+  box-sizing:border-box;height:var(--header-height)!important;margin:0!important;
+  padding:0 0 max(0px,calc(var(--m-w) + var(--m-off) - var(--m-dy)))!important}
